@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.5)
 
 # Make file names absolute:
 #
-get_filename_component(filename "C:/Users/yogee/Desktop/CS2040_2024/as5/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/03597a01ee50ed33e9dfd640b249b4be3799d395.zip" ABSOLUTE)
-get_filename_component(directory "C:/Users/yogee/Desktop/CS2040_2024/as5/out/build/x64-Debug/_deps/googletest-src" ABSOLUTE)
+get_filename_component(filename "C:/Users/yogee/Desktop/CS2040_2024/as5_/as5/out/build/x64-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/03597a01ee50ed33e9dfd640b249b4be3799d395.zip" ABSOLUTE)
+get_filename_component(directory "C:/Users/yogee/Desktop/CS2040_2024/as5_/as5/out/build/x64-Debug/_deps/googletest-src" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

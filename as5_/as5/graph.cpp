@@ -23,3 +23,16 @@ void Graph::addEdge(int source, int dest, int weight) {
   // Assumes that an edge doesn't already exist!
   _vertices[source].emplace_front(dest, weight);
 }
+
+
+// Implementation of print function
+void Graph::print() const {
+    std::cout << "Number of vertices: "<< num_vertices()<< "\n";
+    for (int i = 0; i < num_vertices(); ++i) {
+        std::cout << "Vertex " << i ;
+        for (const auto& edge : _vertices[i]) {
+            std::cout << " -> (" <<"d: " << edge.dest() << ", " << "w: " << edge.weight() << ")";
+        }
+        std::cout << std::endl;
+    }
+}
