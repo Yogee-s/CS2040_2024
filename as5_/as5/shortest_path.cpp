@@ -2,60 +2,9 @@
 #include "shortest_path.h"
 //Included myself
 #include "heap.hpp"
-#include <limits.h>
-
-//Path shortestPath(const Graph& g, int source, int dest) {
-//    vector<int> path;
-//    vector<int> distance(g.num_vertices(), 99999999); // Initialize distances to infinity
-//    distance[source] = 0;
-//    vector<bool> visited(g.num_vertices(), false); // Vector to track visited vertexes
-//    vector<int> parent(g.num_vertices(), -1); // Vector to track parent vertex
-//
-//    // Initialise heap
-//    Heap<GraphEdge> extract;
-//    extract.insert(GraphEdge(source, 0));
-//
-//
-//    while (!extract.empty()) {
-//        GraphEdge current = extract.extractMax();
-//        int current_vertex = current.dest();
-//        int current_distance = current.weight();
-//
-//        if (current_vertex == dest) {
-//            int shortest_distance = distance[dest];
-//            int vertex = dest;
-//            while (vertex != -1) {
-//                path.push_back(vertex);
-//                vertex = parent[vertex];
-//            }
-//            reverse(path.begin(), path.end());
-// 
-//            return Path(shortest_distance, path);
-//        }
-//
-//        visited[current_vertex] = true;
-//
-//        // Relax edges
-//        forward_list<GraphEdge> edges = g.edges_from(current_vertex);
-//        for (const GraphEdge& edge : edges) {
-//            int destination = edge.dest();
-//            int new_distance = edge.weight() + current_distance;
-//            if (new_distance < distance[destination] && !visited[destination]) {
-//                parent[destination] = current_vertex;
-//                distance[destination] = new_distance;
-//                extract.insert(GraphEdge(destination, new_distance));
-//            }
-//        }
-//    }
-//    // No shortest distance
-//    throw std::out_of_range("Shortest path does not exist!");
-//   /* return Path(0, path);*/
-//}
-
 
 
 Path shortestPath(const Graph& g, int source, int dest) {
-    g.print();
     vector<int> path;
     vector<int> distance(g.num_vertices(), 99999999); // Initialize distances to infinity
     distance[source] = 0;
@@ -65,38 +14,42 @@ Path shortestPath(const Graph& g, int source, int dest) {
     Heap<GraphEdge> extract;
     extract.insert(GraphEdge(source, 0));
 
+    //If destination does not exist
+    if (dest < 0 || dest >= g.num_vertices()) {
+        throw std::out_of_range("Destination doesn't exist!");
+    }
+
     while (!extract.empty()) {
         GraphEdge current = extract.extractMax();
         int current_vertex = current.dest();
-        int current_distance = current.weight();
 
-        if (current_vertex == dest) {
-            int shortest_distance = distance[dest];
-            int vertex = dest;
-            while (vertex != -1) {
-                path.push_back(vertex);
-                vertex = parent[vertex];
-            }
-            reverse(path.begin(), path.end());
-
-            return Path(shortest_distance, path);
-        }
-
-        // Relax edges
         forward_list<GraphEdge> edges = g.edges_from(current_vertex);
         for (const GraphEdge& edge : edges) {
             int destination = edge.dest();
-            int new_distance = edge.weight() + current_distance;
+            int new_distance = edge.weight() + distance[current_vertex];
+            // Update distance and heap if a shorter path is found
             if (new_distance < distance[destination]) {
                 parent[destination] = current_vertex;
                 distance[destination] = new_distance;
+                // Insert only if the new distance is less than the current distance stored in the distance array
                 extract.insert(GraphEdge(destination, new_distance));
             }
         }
     }
-    // No shortest distance
-    throw std::out_of_range("Shortest path does not exist!");
+
+    // Constructing the path
+    int path_vertex = dest;
+    while (path_vertex != -1) {
+        path.push_back(path_vertex);
+        path_vertex = parent[path_vertex];
+    }
+    reverse(path.begin(), path.end());
+
+
+    //No shortest distance
+    if (distance[dest] == 99999999) {
+        throw std::out_of_range("Shortest path does not exist!");
+    }
+
+    return Path(distance[dest], path);
 }
-
-
-

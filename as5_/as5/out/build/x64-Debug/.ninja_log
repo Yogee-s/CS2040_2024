@@ -1,10 +1,10 @@
 # ninja log v5
-6	398	7345628086888617	CMakeFiles/graph.dir/shortest_path.cpp.obj	bbe68ac8934cc196
+7	792	7350735601657228	CMakeFiles/graph.dir/shortest_path.cpp.obj	bbe68ac8934cc196
 6	388	7344756578796778	CMakeFiles/graph.dir/graph.cpp.obj	b357db9ec31f8a9e
-399	482	7345628087648614	graph.lib	4bc2ca92857a4f4e
+793	961	7350735603303311	graph.lib	4bc2ca92857a4f4e
 132	2240	7344402391561742	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	797a1a6499c8ea94
 103	2527	7344402394417872	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	494cfaa98ed52577
-25	951	7345545562681837	CMakeFiles/shortest_path_test.dir/shortest_path_test.cpp.obj	8a48525a62407f2c
+5	861	7351193089962455	CMakeFiles/shortest_path_test.dir/shortest_path_test.cpp.obj	8a48525a62407f2c
 63	3455	7344402403547903	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	4bf9b68288cbdfcd
 90	3496	7344402404113398	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.obj	697ddba8f34bbb99
 77	4420	7344402413288884	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.obj	fe9d9ed79f96d4a7
@@ -14,7 +14,4 @@
 49	4653	7344402415669716	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.obj	c9199fa5115fbd2c
 4613	4710	7344402416274971	lib/gtest_main.lib	9c7497a15d97fb44
 4653	4793	7344402416935034	lib/gmock.lib	d01d6b38a9334331
-482	705	7345628089408618	shortest_path_test.exe	35995aa21e55c539
-8	456	7345642917402952	CMakeFiles/graph.dir/shortest_path.cpp.obj	bbe68ac8934cc196
-457	554	7345642918341108	graph.lib	4bc2ca92857a4f4e
-554	1016	7345642921882663	shortest_path_test.exe	35995aa21e55c539
+862	1126	7351193092012704	shortest_path_test.exe	35995aa21e55c539
